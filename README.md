@@ -23,14 +23,25 @@
 
 ## 安装
 
-把整个目录放进 DSH 的本地插件目录，然后 `dsh plugin add` 指向它：
+**手机 / 远程安装（推荐）**：直接用 GitHub 链接。
+
+```
+https://github.com/LingYuYue1/dsh-tavern-bridge
+```
+
+在 DSH 的插件管理里粘贴这个地址即可。也可以用简写：
+
+```
+github:LingYuYue1/dsh-tavern-bridge
+```
+
+已实测：`pnpm add github:LingYuYue1/dsh-tavern-bridge` 能正常装，依赖（`@deepseek-ai/schemastery`）在公共 npm 上有，模块能正常 import。
+
+**本地安装**：把整个目录放进 DSH 的本地插件目录：
 
 ```powershell
-# 方式一：复制到本地插件目录
 Copy-Item "D:\牢凌的知识库\ST角色卡库\50-插件\dsh-tavern-bridge" `
           "$env:USERPROFILE\.dsh\_local-plugins\dsh-tavern-bridge" -Recurse
-
-# 方式二：直接从源码目录 link（开发时用）
 ```
 
 然后在 `~/.dsh/profiles/desktop/package.json` 的 `dependencies` 里加一行，
