@@ -1,0 +1,20 @@
+# Bundle patch for dsh-tavern-bridge.
+#
+# `dsh plugin add` 会应用这个文件，把下面的 plugin 行插进 profile 配置。
+# 把行写在这里（而不是手写进 profile 自己的 cordis.patch.yml）能让插件管理器
+# 知道这个 entry id 属于哪个包，profile 的 patch 层被重写时这一行也不会丢。
+#
+# config 里的 targets 可以写多个酒馆实例：电脑一个、手机一个，用 name 区分。
+# allowWrite / allowGenerate 默认关——要改卡、改世界书、跑生成时再打开。
+- insert:
+    - id: tavern-bridge
+      name: dsh-tavern-bridge
+      config:
+        timeoutMs: 20000
+        allowWrite: false
+        allowGenerate: false
+        targets:
+          - name: pc
+            url: http://127.0.0.1:8000
+            username: ''
+            password: ''
